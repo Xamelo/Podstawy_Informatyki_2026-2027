@@ -123,3 +123,55 @@ def zad5():
 #zad3()
 #zad4()
 zad5()
+
+
+import math
+
+num1 = int(input('Podaj pierwszą liczbę: '))
+num2 = int(input('Podaj drugą liczbę: '))
+
+def showMenu():
+    print('1. Dodawanie')
+    print('2. Odejmowanie')
+    print('3. Mnożenie')
+    print('4. Dzielenie')
+    print('5. Reszta z dzielenia')
+    print('6. Potęgowanie')
+    print('7. Pierwiastkowanie')
+  
+add = lambda a, b : a + b
+sub = lambda a, b : a - b
+multi = lambda a, b : a * b
+def devide(a, b):
+    if b == 0:
+        return print('Nie można dzielić przez 0')
+    else:
+        return a / b
+mod = lambda a, b : a % b
+def pwr(a, b):
+    result = 0
+    for _ in range(b - 1):
+        result += a * a
+    return result
+
+while(True):
+    showMenu()
+    option = input('Wybierz opcję: ')
+    
+    match (option):
+        case '1':
+            print(f'wynik: {add(num1, num2)}')
+        case '2':
+            print(f'wynik: {sub(num1, num2)}')
+        case '3':
+            print(f'wynik: {multi(num1, num2)}')
+        case '4':
+            print(f'wynik: {devide(num1, num2)}')
+        case '5':
+            print(f'wynik: {mod(num1, num2)}')
+        case '6':
+            print(f'wynik: {pwr(num1, num2)}')
+        case '7':
+            print(f'wynik: {math.sqrt(num1)}')
+        case '_':
+            print('Brak takiej opjci')
