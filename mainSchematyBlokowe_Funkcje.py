@@ -1,5 +1,6 @@
 def zad1_1():
     year = int(input('Podaj rok: '))
+    #sprawdzenie czy rok jest przestępny
     if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
         print('Rok jest przestępny')
     else:
@@ -8,6 +9,7 @@ def zad1_1():
 
 def zad1_2():
     dayNumber = int(input('Podaj numer dnia: '))
+    #zmiana numeru dnia tygodnia na jego nazwę
     match dayNumber:
         case 1:
             print('Poniedziałek')
@@ -30,12 +32,15 @@ def zad1_2():
 def zad1_3():
     list = []
     number = 1
+    #wpisywanie wyłącznie liczb większych od 0
     while number != 0:
         number = int(input('Podaj liczbę: '))
         if number > 0:
             list.append(number)
         else:
             continue
+
+    #sprawdzenie czy lista jest pusta
     if len(list) == 0:
         print('Brak liczb dodatnich')
     else:
@@ -43,11 +48,14 @@ def zad1_3():
 
         sum = 0
         evenNumbers = 0
+
+        #dodawanie liczb i liczenie wszystkich parzystych
         for number in list:
             sum += number
             if number % 2 == 0:
                 evenNumbers += 1
 
+        #wyświetlanie wszystkich informacji o liczbach
         print(f'suma podanych liczb: {sum}')
         print(f'średnia podanych liczb: {sum / len(list)}')
         print(f'ilość liczb parzystych: {evenNumbers}')
@@ -66,20 +74,24 @@ def zad1_4():
     print(f'ostatnia litera: {text[-1]}')
     print(f'pierwsze 3 znaki: {text[0:3]}')
 
+    #wypisywanie wszystkich indeksów liter z wyrazu
     index = 0
     for letter in text:
         print(f'{index}: {letter}')
         index += 1
 
+    #odwrócenie wyrazu
     reversedText = ''
     for i in range(len(text) - 1, -1, -1):
         reversedText += text[i]
 
+    #sprawdzenie czy wyraz jest palindromem
     if reversedText == text:
         print('wyraz jest palindromem')
 
     vowels = ('a', 'e', 'i', 'o', 'u', 'y', 'ą', 'ę', 'ó')
 
+    #liczenie samogłosek
     sumOfVowels = 0
     for letter in text:
         for vowel in vowels:
@@ -92,14 +104,20 @@ def zad1_5():
     monday = {"Anna", "Piotr", "Marta", "Jan", "Ewa"}
     wednesday = {"Piotr", "Kasia", "Jan", "Tomek"}
 
+    #wszustkie osoby z poniedziałku i środy
     print('Wszyscy: ', monday | wednesday)
+    #osoby tylko będące w poniedziałek
     print('Poniedziałek: ', monday - wednesday)
-    print('Oba dni: ', monday & wednesday)
+    #osoby będące w obydwa dni
+    print('Obydwa dni: ', monday & wednesday)
+    #osoby będące tylko w jednym dniu
     print('Tylko jeden dzień: ', monday ^ wednesday)
 
+    #dodanie do poniedziałku jednej osoby i usunięcie jednej osoby
     monday.add("Tomek")
     monday.discard("Ewa")
 
+    #wyświetlenie czy zbiory są rozłączne
     print('Czy zbiory są rozłączne ', monday.issubset(wednesday))
 
     grades = {"Anna": 5, "Piotr": 3, "Marta": 4}
@@ -108,12 +126,15 @@ def zad1_5():
 
     grades["Piotr"] = 4
 
+    #wypisanie imienia i oceny tej osoby
     for name, grade in grades.items():
         print(f'{name}: {grade}')
 
+    #obliczanie średniej
     avg = sum(grades.values()) / len(grades)
     print(f'średnia: {avg}')
 
+    #szukanie studenta i wyświetlanie jego oceny jeśli jest
     searchingStudent = input('Podaj imię studenta: ')
 
     if searchingStudent in grades:
