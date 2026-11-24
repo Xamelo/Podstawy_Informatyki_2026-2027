@@ -163,7 +163,7 @@ def zad2_2():
     celsiusDegrees = int(input('Podaj ilość stopni celcjusza: '))
 
     #funkcja typu lambda, która zwraca ilość stopni fahrenheita z celsjusza
-    celsiusToFahrenheit = lambda cd : (celsiusDegrees * 1.8) + 32
+    celsiusToFahrenheit = lambda cd : (cd * 1.8) + 32
 
     print(f'Ilość stopni Fahrenheita: {celsiusToFahrenheit(celsiusDegrees)}')
 
